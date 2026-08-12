@@ -49,30 +49,14 @@ My Profile now opens a functional profile modal with account details, status, ac
 All sidebar modules are accessible. Module actions open functional forms, register searches/status filters work, reports open printable report views, local records persist in browser storage, and profile actions are interactive.
 
 
-## 🌐 Deploy agar bisa diakses orang lain
+## 🌐 Vercel deployment
 
-Versi ini sudah disiapkan untuk deployment ke **Render**.
+This version is prepared for Vercel with an Express entrypoint and `vercel.json`.
 
-### Cara paling mudah
-1. Buat akun GitHub dan repository baru, misalnya `legaric`.
-2. Upload seluruh isi folder `LEGARIC` ke repository tersebut.
-3. Buka Render dan pilih **New → Web Service**.
-4. Hubungkan repository GitHub tadi.
-5. Gunakan:
-   - **Runtime:** Node
-   - **Build Command:** `npm install`
-   - **Start Command:** `npm start`
-6. Tambahkan environment variable:
-   - `NODE_ENV=production`
-   - `SESSION_SECRET` = string acak yang panjang
-7. Deploy.
-8. Setelah selesai, Render akan memberikan alamat seperti `https://legaric-xxxx.onrender.com`.
-   Bagikan alamat tersebut ke orang lain — mereka bisa membuka aplikasi dari browser tanpa menjalankan Node.js di komputer mereka.
+1. Upload the contents of this folder to the GitHub repository.
+2. Import the repository into Vercel.
+3. Add environment variable `SESSION_SECRET` with a long random value.
+4. Deploy.
 
-### Catatan penting
-- Aplikasi ini masih memakai `data.json` sebagai penyimpanan sederhana. Cocok untuk demo/tugas, tetapi **belum cocok untuk produksi dengan banyak pengguna**.
-- Pada hosting gratis tertentu, filesystem dapat di-reset ketika service dibuat/deploy ulang. Jadi data risiko yang dimasukkan pengguna sebaiknya dianggap data demo.
-- Akun demo:
-  - `admin@legaric.local` / `admin123`
-  - `risk@legaric.local` / `risk123`
-- Untuk penggunaan nyata, sebaiknya nanti dipindahkan ke database PostgreSQL dan password akun diganti dengan kredensial yang aman.
+### Demo-data limitation
+This Vercel-ready version keeps risk data in memory because Vercel deployments are not a persistent local filesystem. Data created during a running instance may be reset after a new deployment/restart. For a real multi-user application, use a persistent database such as PostgreSQL.
