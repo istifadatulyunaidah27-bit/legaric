@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<link href="/favicon.png" rel="icon" sizes="64x64" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="#0d1b2a" name="theme-color"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LEGARIC — Integrated GRC</title>
+<link href="/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="login-page" id="loginPage">
+<div class="login-shell">
+<div class="login-visual">
+<div class="visual-badge">INTEGRATED GRC PLATFORM</div>
+<div class="visual-content">
+<div class="visual-logo-wrap"><img alt="Logo KIG" src="/logo.png"/></div>
+<h2>LEGARIC</h2>
+<p>Integrated Legal, Governance, Risk, Compliance &amp; Internal Control.</p>
+<div class="visual-pills">
+<span>LEGAL</span><span>GOVERNANCE</span><span>RISK</span><span>COMPLIANCE</span><span>INTERNAL CONTROL</span>
+</div>
+</div>
+<div class="visual-footer">KIG · GRC MANAGEMENT SYSTEM</div>
+</div>
+<div class="login-card">
+<div class="login-mobile-logo"><img alt="Logo KIG" src="/logo.png"/></div>
+<div class="login-heading">
+<div class="eyebrow">WELCOME BACK</div>
+<h1>Sign in to LEGARIC</h1>
+<p>Access your integrated GRC workspace securely.</p>
+</div>
+<form id="loginForm">
+<label for="email">Email</label>
+<div class="input-wrap">
+<span class="input-icon">✉</span>
+<input autocomplete="username" id="email" placeholder="Enter your email" required="" type="email" value="admin@legaric.local"/>
+</div>
+<label for="password">Password</label>
+<div class="input-wrap">
+<span class="input-icon">●</span>
+<input autocomplete="current-password" id="password" placeholder="Enter your password" required="" type="password" value="admin123"/>
+<button aria-label="Show password" class="password-toggle" onclick="togglePassword()" type="button">Show</button>
+</div>
+<div class="login-options">
+<label class="remember"><input checked="" type="checkbox"/> <span>Remember me</span></label>
+<span class="secure-login">● Secure login</span>
+</div>
+<button class="login-submit" type="submit"><span>Sign In</span><span class="login-arrow">→</span></button>
+<div class="error" id="loginError"></div>
+</form>
+<div class="demo-box">
+<div><strong>Demo Access</strong><small>Administrator account</small></div>
+<code>admin@legaric.local</code>
+<code>admin123</code>
+</div>
+<div class="login-bottom">
+<span>LEGARIC v1.4</span>
+<span>Developed by Rumah Hantu Team</span>
+</div>
+</div>
+</div>
+</div>
+<div class="app hidden" id="appPage">
+<aside class="sidebar">
+<div class="logo"><img alt="Logo perusahaan" src="/logo.png"/><div><strong>LEGARIC</strong><small>Integrated GRC</small></div></div>
+<nav>
+<a class="active" data-section="dashboard">⌂ <span>Dashboard</span></a>
+<div class="nav-title">MANAGEMENT</div>
+<a data-section="legal">⚖ <span>Legal Management</span></a>
+<a data-section="governance">▦ <span>Governance</span></a>
+<a data-section="risk">△ <span>Risk Management</span></a>
+<a data-section="compliance">✓ <span>Compliance</span></a>
+<a data-section="control">◈ <span>Internal Control</span></a>
+<a data-section="audit">⌕ <span>Audit &amp; Findings</span></a>
+<a data-section="action">→ <span>Action Plans</span></a>
+<div class="nav-title">SYSTEM</div>
+<a data-section="documents">▤ <span>Documents</span></a>
+<a data-section="reports">▥ <span>Reports</span></a>
+<a data-section="admin">⚙ <span>Administration</span></a>
+</nav>
+<div class="sidebar-footer">LEGARIC v1.4 · Integrated GRC<br/><span>Developed by Rumah Hantu Team</span></div>
+</aside>
+<main class="main">
+<header class="topbar">
+<div>
+<div class="eyebrow">INTEGRATED LEGAL, GOVERNANCE, RISK, COMPLIANCE &amp; INTERNAL CONTROL</div>
+<h2 id="pageTitle">Executive Dashboard</h2>
+</div>
+<div class="profile-menu-wrap">
+<button aria-expanded="false" aria-haspopup="true" class="profile-trigger" id="profileTrigger" type="button">
+<div class="avatar" id="avatar">A</div>
+<div class="profile-copy"><strong id="userName">Admin</strong><small id="userRole">Administrator</small></div>
+<span class="profile-chevron">⌄</span>
+</button>
+<div class="profile-dropdown hidden" id="profileDropdown">
+<div class="dropdown-head">
+<div class="dropdown-avatar" id="dropdownAvatar">A</div>
+<div><strong id="dropdownName">LEGARIC Administrator</strong><small id="dropdownRole">Administrator</small></div>
+</div>
+<div class="dropdown-divider"></div>
+<button class="dropdown-item" id="myProfile" type="button"><span class="drop-icon">◉</span><span><strong>My Profile</strong><small>View account information</small></span></button>
+<button class="dropdown-item" id="switchAccount" type="button"><span class="drop-icon">⇄</span><span><strong>Ganti Akun</strong><small>Sign in with another account</small></span></button>
+<div class="dropdown-divider"></div>
+<button class="dropdown-item danger-item" id="logout" type="button"><span class="drop-icon">↪</span><span><strong>Logout</strong><small>End your current session</small></span></button>
+</div>
+</div>
+</header>
+<section class="section" id="dashboard">
+<div class="welcome">
+<div>
+<span class="eyebrow">EXECUTIVE OVERVIEW</span>
+<h1>Integrated GRC Dashboard</h1>
+<p>One-page view of Legal, Governance, Risk, Compliance, Internal Control and follow-up activities.</p>
+</div>
+<div class="dashboard-actions">
+<button class="secondary" onclick="showSection('reports')">View Reports</button>
+<button class="primary" onclick="showSection('risk')">+ Add Risk</button>
+</div>
+</div>
+
+<div class="cards executive-cards">
+<div class="card kpi-risk kpi-card" data-kpi="high" data-target="risk" role="button" tabindex="0" title="Klik untuk melihat data terkait">
+<span>HIGH RISKS</span><strong id="highRisks">0</strong><em>Immediate attention</em><div class="mini-progress"><i id="highRiskProgress"></i></div>
+</div>
+<div class="card kpi-card" data-kpi="all" data-target="risk" role="button" tabindex="0" title="Klik untuk melihat data terkait">
+<span>TOTAL RISKS</span><strong id="totalRisks">0</strong><em>Registered risks</em><div class="mini-progress"><i id="totalRiskProgress"></i></div>
+</div>
+<div class="card kpi-card" data-kpi="compliant" data-target="compliance" role="button" tabindex="0" title="Klik untuk melihat data terkait">
+<span>COMPLIANCE</span><strong id="complianceRate">0%</strong><em>Calculated from Compliance Register</em><div class="mini-progress"><i id="complianceProgress"></i></div>
+</div>
+<div class="card kpi-card" data-kpi="open-actions" data-target="action" role="button" tabindex="0" title="Klik untuk melihat data terkait">
+<span>OPEN ACTIONS</span><strong id="openRisks">0</strong><em>Needs follow-up</em><div class="mini-progress"><i id="openActionProgress"></i></div>
+</div>
+<div class="card kpi-card kpi-legal-matters" data-kpi="all" data-target="legal" role="button" tabindex="0" title="Klik untuk melihat data terkait">
+<span>LEGAL MATTERS</span><strong id="dashboardLegalMatters">0</strong><em>All records in Legal Register</em><div class="mini-progress"><i id="legalProgress"></i></div>
+</div>
+<div class="card kpi-card kpi-effective" data-kpi="effective" data-target="control" role="button" tabindex="0" title="Klik untuk melihat data terkait">
+<span>CONTROL EFFECTIVENESS</span><strong id="dashboardControlEffectiveness">0%</strong><em>Calculated from Internal Control</em><div class="mini-progress"><i id="controlProgress"></i></div>
+</div>
+</div>
+
+<div class="dashboard-grid">
+<div class="panel chart-panel">
+<div class="panel-head"><div><h3>Risk Distribution</h3><small class="panel-subtitle">Live composition of the Risk Register</small></div><span id="riskChartTotal">0 risks</span></div>
+<div class="chart-row">
+<div class="donut-wrap">
+<div class="donut-chart" id="riskDonut"><div><strong id="riskDonutTotal">0</strong><small>Total Risks</small></div></div>
+</div>
+<div class="legend-list">
+<div class="dashboard-drill" data-target="risk" data-filter-key="high" role="button" tabindex="0"><i class="dot dot-high"></i><span>High</span><strong id="riskHighCount">0</strong></div>
+<div class="dashboard-drill" data-target="risk" data-filter-key="medium" role="button" tabindex="0"><i class="dot dot-medium"></i><span>Medium</span><strong id="riskMediumCount">0</strong></div>
+<div class="dashboard-drill" data-target="risk" data-filter-key="low" role="button" tabindex="0"><i class="dot dot-low"></i><span>Low</span><strong id="riskLowCount">0</strong></div>
+<div class="legend-total"><span>High-risk ratio</span><strong id="riskHighRatio">0%</strong></div>
+</div>
+</div>
+</div>
+
+<div class="panel chart-panel">
+<div class="panel-head"><div><h3>Compliance Status</h3><small class="panel-subtitle">Calculated from the live Compliance Register</small></div><span id="complianceChartTotal">0 items</span></div>
+<div class="bar-list" id="dashboardComplianceBars">
+<div><span>Compliant</span><div class="bar-track"><i></i></div><strong>0%</strong></div>
+<div><span>In Review</span><div class="bar-track"><i></i></div><strong>0%</strong></div>
+<div><span>Overdue</span><div class="bar-track"><i></i></div><strong>0%</strong></div>
+</div>
+</div>
+
+<div class="panel chart-panel">
+<div class="panel-head"><div><h3>Action Plan Progress</h3><small class="panel-subtitle">Live status across Action Plans</small></div><span id="actionChartTotal">0 actions</span></div>
+<div class="action-summary">
+<div class="action-ring" id="actionRing"><strong id="actionCompletionPct">0%</strong><small>Completed</small></div>
+<div class="action-stats">
+<div class="dashboard-drill" data-target="action" data-filter-key="completed" role="button" tabindex="0"><span>Completed</span><strong id="actionCompletedCount">0</strong></div>
+<div class="dashboard-drill" data-target="action" data-filter-key="open-actions" role="button" tabindex="0"><span>Open / In Progress</span><strong id="actionOpenCount">0</strong></div>
+<div class="dashboard-drill" data-target="action" data-filter-key="overdue" role="button" tabindex="0"><span>Overdue</span><strong id="actionOverdueCount">0</strong></div>
+</div>
+</div>
+<div class="segmented-progress"><i id="actionCompletedBar"></i><b id="actionOpenBar"></b><em id="actionOverdueBar"></em></div>
+</div>
+</div>
+
+<div class="panel module-overview">
+<div class="panel-head"><div><h3>GRC Module Overview</h3><small class="panel-subtitle">Counts below are linked to each live register</small></div><span>Integrated view</span></div>
+<div class="module-overview-grid">
+<div class="module-tile" onclick="showSection('legal')"><span>⚖</span><div><strong>Legal</strong><small id="moduleLegalCount">0 matters</small></div><b>Open</b></div>
+<div class="module-tile" onclick="showSection('governance')"><span>▦</span><div><strong>Governance</strong><small id="moduleGovernanceCount">0 items</small></div><b>Open</b></div>
+<div class="module-tile" onclick="showSection('risk')"><span>△</span><div><strong>Risk</strong><small id="moduleRiskCount">0 risks</small></div><b class="warn" id="moduleRiskHigh">0 High</b></div>
+<div class="module-tile" onclick="showSection('compliance')"><span>✓</span><div><strong>Compliance</strong><small id="moduleComplianceCount">0 obligations</small></div><b id="moduleComplianceRate">0%</b></div>
+<div class="module-tile" onclick="showSection('control')"><span>◈</span><div><strong>Internal Control</strong><small id="moduleControlCount">0 controls</small></div><b id="moduleControlRate">0%</b></div>
+<div class="module-tile" onclick="showSection('audit')"><span>⌕</span><div><strong>Audit &amp; Findings</strong><small id="moduleAuditCount">0 findings</small></div><b class="warn" id="moduleAuditOpen">0 Open</b></div>
+<div class="module-tile" onclick="showSection('action')"><span>→</span><div><strong>Action Plans</strong><small id="moduleActionCount">0 actions</small></div><b id="moduleActionRate">0%</b></div>
+<div class="module-tile" onclick="showSection('documents')"><span>▤</span><div><strong>Documents</strong><small id="moduleDocumentCount">0 documents</small></div><b>Open</b></div>
+<div class="module-tile" onclick="showSection('reports')"><span>▥</span><div><strong>Reports</strong><small>Available report packs</small></div><b>Open</b></div>
+<div class="module-tile" onclick="showSection('admin')"><span>⚙</span><div><strong>Administration</strong><small>Users &amp; roles</small></div><b>Open</b></div>
+</div>
+</div>
+
+<div class="grid2 dashboard-bottom">
+<div class="panel">
+<div class="panel-head"><div><h3>Live Data Principle</h3><small class="panel-subtitle">One source of truth</small></div></div>
+<p class="dashboard-note">Dashboard figures are calculated from the same registers you edit. Add, revise or delete a record and the related KPI/chart updates automatically.</p>
+</div>
+<div class="panel">
+<div class="panel-head"><div><h3>Quick Navigation</h3><small class="panel-subtitle">Open a module directly</small></div></div>
+<div class="quick-links">
+<button type="button" onclick="showSection('legal')">Legal</button>
+<button type="button" onclick="showSection('risk')">Risk</button>
+<button type="button" onclick="showSection('compliance')">Compliance</button>
+<button type="button" onclick="showSection('control')">Internal Control</button>
+<button type="button" onclick="showSection('audit')">Audit</button>
+<button type="button" onclick="showSection('action')">Action Plans</button>
+</div>
+</div>
+</div>
+</section>
+<section class="section hidden" id="legal">
+<div class="section-head"><div><span class="eyebrow">LEGAL MANAGEMENT</span><h1>Legal Management</h1></div><button class="primary" onclick="showLegalForm()">+ New Legal Record</button></div>
+<div class="cards module-cards">
+<div class="card kpi-card kpi-active-contracts" data-kpi="active-contracts" data-target="legal" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>ACTIVE CONTRACTS</span><strong>12</strong><em>Contracts under monitoring</em></div>
+<div class="card kpi-card kpi-legal-requests" data-kpi="legal-requests" data-target="legal" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>LEGAL REQUESTS</span><strong>5</strong><em>Requests in progress</em></div>
+<div class="card kpi-card kpi-licenses-permits" data-kpi="licenses-permits" data-target="legal" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>LICENSES &amp; PERMITS</span><strong>8</strong><em>Documents monitored</em></div>
+<div class="card kpi-card kpi-expiring-soon" data-kpi="expiring-soon" data-target="legal" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>EXPIRING SOON</span><strong>2</strong><em>Requires follow-up</em></div>
+</div>
+<div class="panel table-panel">
+<div class="panel-head"><h3>Legal Register</h3><span>Live register</span></div>
+<table><thead><tr><th>ID</th><th>Legal Matter</th><th>Type</th><th>Owner</th><th>Due Date</th><th>Status</th></tr></thead>
+<tbody><tr data-kpi="active-contracts"><td><strong>LEG-001</strong></td><td>Perjanjian Kerja Sama Vendor</td><td>Contract</td><td>Legal</td><td>30 Sep 2026</td><td><span class="status status-open">Active</span></td></tr>
+<tr data-kpi="licenses-permits expiring-soon"><td><strong>LEG-002</strong></td><td>Perpanjangan Izin Operasional</td><td>License</td><td>Compliance</td><td>15 Oct 2026</td><td><span class="status status-warn">Monitoring</span></td></tr>
+<tr data-kpi="legal-requests expiring-soon"><td><strong>LEG-003</strong></td><td>Permintaan Review Klausul Kontrak</td><td>Legal Request</td><td>Procurement</td><td>25 Aug 2026</td><td><span class="status status-open">In Review</span></td></tr></tbody></table>
+</div>
+</section>
+<section class="section hidden" id="governance">
+<div class="section-head"><div><span class="eyebrow">GOVERNANCE</span><h1>Governance Management</h1></div><button class="primary" onclick="showGovernanceForm()">+ New Governance Item</button></div>
+<div class="cards module-cards">
+<div class="card kpi-card kpi-policies" data-kpi="policies" data-target="governance" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>POLICIES</span><strong>24</strong><em>Policies registered</em></div>
+<div class="card kpi-card kpi-approvals" data-kpi="approvals" data-target="governance" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>APPROVALS</span><strong>7</strong><em>Awaiting approval</em></div>
+<div class="card kpi-card kpi-governance-items" data-kpi="governance-items" data-target="governance" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>GOVERNANCE ITEMS</span><strong>16</strong><em>Being monitored</em></div>
+<div class="card kpi-card kpi-overdue" data-kpi="overdue" data-target="governance" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>OVERDUE</span><strong>1</strong><em>Needs attention</em></div>
+</div>
+<div class="grid2">
+<div class="panel"><div class="panel-head"><h3>Governance Framework</h3><span>Current</span></div>
+<div class="governance-list"><div data-kpi="policies"><span class="governance-icon">▦</span><div><strong>Policies &amp; Procedures</strong><small>Policy ownership, review cycle and approval</small></div><span class="status status-open">Active</span></div>
+<div data-kpi="approvals"><span class="governance-icon">✓</span><div><strong>Authority &amp; Approval Matrix</strong><small>Delegation of authority and approval limits</small></div><span class="status status-open">Active</span></div>
+<div data-kpi="governance-items overdue"><span class="governance-icon">◈</span><div><strong>Governance Monitoring</strong><small>Governance actions and follow-up</small></div><span class="status status-warn">Review</span></div></div>
+</div>
+<div class="panel"><div class="panel-head"><h3>Upcoming Reviews</h3><span>Next 90 days</span></div>
+<div class="review-item" data-kpi="policies"><strong>Board Governance Policy</strong><small>Review: 10 Sep 2026</small></div>
+<div class="review-item" data-kpi="approvals"><strong>Delegation of Authority</strong><small>Review: 20 Sep 2026</small></div>
+<div class="review-item" data-kpi="governance-items"><strong>Code of Conduct</strong><small>Review: 05 Oct 2026</small></div>
+</div>
+</div>
+</section>
+<section class="section hidden" id="risk">
+<div class="section-head"><div><span class="eyebrow">RISK MANAGEMENT</span><h1>Risk Register</h1></div><button class="primary" id="openRisk">+ New Risk</button></div>
+<div class="panel"><table><thead><tr><th>ID</th><th>Risk</th><th>Category</th><th>Owner</th><th>Score</th><th>Status</th><th>Actions</th></tr></thead><tbody id="riskRows"></tbody></table></div>
+</section>
+<section class="section hidden" id="compliance"><div class="section-head"><div><span class="eyebrow">COMPLIANCE</span><h1>Compliance Management</h1><p style="color:var(--muted);margin:6px 0 0;font-size:12px">Monitor regulatory obligations, assessments and compliance status.</p></div></div><div class="cards module-cards"><div class="card kpi-card kpi-obligations" data-kpi="obligations" data-target="compliance" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>OBLIGATIONS</span><strong>18</strong><em>Regulatory obligations</em></div><div class="card kpi-card kpi-compliant" data-kpi="compliant" data-target="compliance" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>COMPLIANT</span><strong>87%</strong><em>Current assessment</em></div><div class="card kpi-card kpi-in-review" data-kpi="in-review" data-target="compliance" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>IN REVIEW</span><strong>4</strong><em>Assessments underway</em></div><div class="card kpi-card kpi-overdue" data-kpi="overdue" data-target="compliance" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>OVERDUE</span><strong>1</strong><em>Needs attention</em></div></div>
+<div class="panel table-panel"><div class="panel-head"><h3>Compliance Register</h3><button class="primary" onclick="moduleNotice('New Compliance Obligation')">+ New Obligation</button></div><table><thead><tr><th>ID</th><th>Obligation</th><th>Regulator</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead><tbody><tr data-kpi="obligations compliant"><td><strong>CMP-001</strong></td><td>Regulatory Reporting</td><td>Regulator</td><td>Compliance</td><td>30 Sep 2026</td><td><span class="status status-open">Compliant</span></td></tr><tr data-kpi="obligations in-review"><td><strong>CMP-002</strong></td><td>Environmental Obligation</td><td>Government</td><td>HSE</td><td>15 Oct 2026</td><td><span class="status status-warn">In Review</span></td></tr><tr data-kpi="obligations overdue"><td><strong>CMP-003</strong></td><td>Annual License Renewal</td><td>Government</td><td>Compliance</td><td>20 Aug 2026</td><td><span class="status status-danger">Overdue</span></td></tr></tbody></table></div></section>
+<section class="section hidden" id="control"><div class="section-head"><div><span class="eyebrow">INTERNAL CONTROL</span><h1>Internal Control Management</h1><p style="color:var(--muted);margin:6px 0 0;font-size:12px">Manage control registers, assessments, testing and remediation.</p></div></div><div class="cards module-cards"><div class="card kpi-card kpi-controls" data-kpi="controls" data-target="control" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>CONTROLS</span><strong>32</strong><em>Registered controls</em></div><div class="card kpi-card kpi-effective" data-kpi="effective" data-target="control" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>EFFECTIVE</span><strong>91%</strong><em>Control effectiveness</em></div><div class="card kpi-card kpi-testing" data-kpi="testing" data-target="control" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>TESTING</span><strong>6</strong><em>Tests in progress</em></div><div class="card kpi-card kpi-gaps" data-kpi="gaps" data-target="control" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>GAPS</span><strong>3</strong><em>Control gaps</em></div></div>
+<div class="panel table-panel"><div class="panel-head"><h3>Internal Control Register</h3><button class="primary" onclick="moduleNotice('New Internal Control')">+ New Control</button></div><table><thead><tr><th>ID</th><th>Control</th><th>Process</th><th>Owner</th><th>Frequency</th><th>Status</th></tr></thead><tbody><tr data-kpi="controls effective"><td><strong>CTL-001</strong></td><td>Segregation of Duties</td><td>Procurement</td><td>Finance</td><td>Continuous</td><td><span class="status status-open">Effective</span></td></tr><tr data-kpi="controls testing"><td><strong>CTL-002</strong></td><td>Contract Approval</td><td>Legal</td><td>Legal</td><td>Per Event</td><td><span class="status status-warn">Testing</span></td></tr><tr data-kpi="controls gaps"><td><strong>CTL-003</strong></td><td>Access Review</td><td>IT Access</td><td>IT</td><td>Quarterly</td><td><span class="status status-danger">Gap</span></td></tr></tbody></table></div></section>
+<section class="section hidden" id="audit"><div class="section-head"><div><span class="eyebrow">AUDIT &amp; FINDINGS</span><h1>Audit &amp; Findings</h1><p style="color:var(--muted);margin:6px 0 0;font-size:12px">Track audit engagements, findings, recommendations and follow-up.</p></div></div><div class="cards module-cards"><div class="card kpi-card kpi-audits" data-kpi="audits" data-target="audit" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>AUDITS</span><strong>9</strong><em>Current year</em></div><div class="card kpi-card kpi-open-findings" data-kpi="open-findings" data-target="audit" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>OPEN FINDINGS</span><strong>6</strong><em>Requires follow-up</em></div><div class="card kpi-card kpi-high-findings" data-kpi="high-findings" data-target="audit" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>HIGH FINDINGS</span><strong>2</strong><em>Priority items</em></div><div class="card kpi-card kpi-closed" data-kpi="closed" data-target="audit" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>CLOSED</span><strong>14</strong><em>Resolved findings</em></div></div>
+<div class="panel table-panel"><div class="panel-head"><h3>Audit Findings</h3><button class="primary" onclick="moduleNotice('New Audit Finding')">+ New Finding</button></div><table><thead><tr><th>ID</th><th>Finding</th><th>Area</th><th>Severity</th><th>Owner</th><th>Status</th></tr></thead><tbody><tr data-kpi="audits open-findings high-findings"><td><strong>FND-001</strong></td><td>Incomplete evidence retention</td><td>Document Control</td><td>High</td><td>Operations</td><td><span class="status status-warn">Open</span></td></tr><tr data-kpi="audits open-findings"><td><strong>FND-002</strong></td><td>Policy review overdue</td><td>Governance</td><td>Medium</td><td>Governance</td><td><span class="status status-open">Action Plan</span></td></tr><tr data-kpi="audits closed"><td><strong>FND-003</strong></td><td>Late management response</td><td>Governance</td><td>Low</td><td>Governance</td><td><span class="status status-open">Closed</span></td></tr></tbody></table></div></section>
+<section class="section hidden" id="action"><div class="section-head"><div><span class="eyebrow">ACTION PLAN</span><h1>Action Plan Management</h1><p style="color:var(--muted);margin:6px 0 0;font-size:12px">Monitor corrective actions, owners, due dates and completion.</p></div></div><div class="cards module-cards"><div class="card kpi-card kpi-open-actions" data-kpi="open-actions" data-target="action" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>OPEN ACTIONS</span><strong>11</strong><em>Corrective actions</em></div><div class="card kpi-card kpi-overdue" data-kpi="overdue" data-target="action" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>OVERDUE</span><strong>2</strong><em>Requires escalation</em></div><div class="card kpi-card kpi-due-soon" data-kpi="due-soon" data-target="action" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>DUE SOON</span><strong>4</strong><em>Next 30 days</em></div><div class="card kpi-card kpi-completed" data-kpi="completed" data-target="action" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>COMPLETED</span><strong>23</strong><em>Closed actions</em></div></div>
+<div class="panel table-panel"><div class="panel-head"><h3>Action Plan Register</h3><button class="primary" onclick="moduleNotice('New Action Plan')">+ New Action</button></div><table><thead><tr><th>ID</th><th>Action</th><th>Source</th><th>Owner</th><th>Due Date</th><th>Status</th></tr></thead><tbody><tr data-kpi="open-actions due-soon"><td><strong>ACT-001</strong></td><td>Update contract review checklist</td><td>Audit</td><td>Legal</td><td>20 Sep 2026</td><td><span class="status status-warn">In Progress</span></td></tr><tr data-kpi="open-actions due-soon"><td><strong>ACT-002</strong></td><td>Complete control testing</td><td>Internal Control</td><td>Finance</td><td>30 Sep 2026</td><td><span class="status status-open">On Track</span></td></tr><tr data-kpi="overdue"><td><strong>ACT-003</strong></td><td>Close audit finding</td><td>Audit</td><td>Operations</td><td>05 Aug 2026</td><td><span class="status status-danger">Overdue</span></td></tr><tr data-kpi="completed"><td><strong>ACT-004</strong></td><td>Update policy register</td><td>Governance</td><td>Governance</td><td>10 Aug 2026</td><td><span class="status status-open">Completed</span></td></tr></tbody></table></div></section>
+<section class="section hidden" id="documents"><div class="section-head"><div><span class="eyebrow">DOCUMENT MANAGEMENT</span><h1>Documents</h1><p style="color:var(--muted);margin:6px 0 0;font-size:12px">Centralize controlled documents, policies, evidence and records.</p></div></div><div class="cards module-cards"><div class="card kpi-card kpi-total-documents" data-kpi="total-documents" data-target="documents" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>TOTAL DOCUMENTS</span><strong>148</strong><em>Controlled records</em></div><div class="card kpi-card kpi-policies" data-kpi="policies" data-target="documents" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>POLICIES</span><strong>24</strong><em>Current policies</em></div><div class="card kpi-card kpi-expiring" data-kpi="expiring" data-target="documents" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>EXPIRING</span><strong>5</strong><em>Review required</em></div><div class="card kpi-card kpi-archived" data-kpi="archived" data-target="documents" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>ARCHIVED</span><strong>31</strong><em>Historical records</em></div></div>
+<div class="panel table-panel"><div class="panel-head"><h3>Document Register</h3><button class="primary" onclick="moduleNotice('Upload Document')">+ Upload Document</button></div><table><thead><tr><th>ID</th><th>Document</th><th>Category</th><th>Owner</th><th>Review Date</th><th>Status</th></tr></thead><tbody><tr data-kpi="total-documents policies"><td><strong>DOC-001</strong></td><td>Risk Management Policy</td><td>Policy</td><td>Risk</td><td>01 Nov 2026</td><td><span class="status status-open">Current</span></td></tr><tr data-kpi="total-documents"><td><strong>DOC-002</strong></td><td>Internal Control Procedure</td><td>Procedure</td><td>IC</td><td>15 Oct 2026</td><td><span class="status status-open">Current</span></td></tr><tr data-kpi="total-documents expiring"><td><strong>DOC-003</strong></td><td>Vendor Contract Register</td><td>Contract</td><td>Legal</td><td>25 Aug 2026</td><td><span class="status status-warn">Review</span></td></tr><tr data-kpi="total-documents archived"><td><strong>DOC-004</strong></td><td>Legacy Compliance Report</td><td>Report</td><td>Compliance</td><td>01 Jan 2026</td><td><span class="status">Archived</span></td></tr></tbody></table></div></section>
+<section class="section hidden" id="reports"><div class="section-head"><div><span class="eyebrow">REPORTING</span><h1>Reports</h1><p style="color:var(--muted);margin:6px 0 0;font-size:12px">Access management reports and executive summaries across LEGARIC.</p></div></div><div class="cards module-cards"><div class="card kpi-card kpi-executive-report" data-kpi="executive-report" data-target="reports" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>EXECUTIVE REPORT</span><strong>01</strong><em>Integrated overview</em></div><div class="card kpi-card kpi-risk-report" data-kpi="risk-report" data-target="reports" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>RISK REPORT</span><strong>04</strong><em>Available reports</em></div><div class="card kpi-card kpi-compliance-report" data-kpi="compliance-report" data-target="reports" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>COMPLIANCE</span><strong>03</strong><em>Available reports</em></div><div class="card kpi-card kpi-audit-report" data-kpi="audit-report" data-target="reports" role="button" tabindex="0" title="Klik untuk melihat data terkait"><span>AUDIT</span><strong>05</strong><em>Available reports</em></div></div>
+<div class="grid2"><div class="panel"><div class="panel-head"><h3>Executive Reports</h3></div><div class="review-item" data-kpi="executive-report"><strong>Integrated GRC Executive Summary</strong><small>Legal · Governance · Risk · Compliance · Internal Control</small><button class="primary" onclick="moduleNotice('Generate Executive Summary')">Generate</button></div><div class="review-item" data-kpi="risk-report"><strong>Risk Profile Report</strong><small>Current risk exposure and treatment status</small><button class="primary" onclick="moduleNotice('Generate Risk Report')">Generate</button></div></div><div class="panel"><div class="panel-head"><h3>Report Center</h3></div><p style="color:var(--muted);font-size:12px;line-height:1.7">Generate management reports from registered data. Export report dapat dicetak atau disimpan sebagai PDF melalui browser.</p></div></div></section>
+<section class="section hidden" id="admin"><div class="section-head"><div><span class="eyebrow">ADMINISTRATION</span><h1>Administration</h1><p style="color:var(--muted);margin:6px 0 0;font-size:12px">Manage users, roles, permissions and system settings.</p></div></div><div class="cards module-cards"><div class="card"><span>USERS</span><strong>2</strong><em>Registered users</em></div><div class="card"><span>ROLES</span><strong>2</strong><em>Configured roles</em></div><div class="card"><span>ACTIVE SESSIONS</span><strong>1</strong><em>Current sessions</em></div><div class="card"><span>SYSTEM STATUS</span><strong>OK</strong><em>LEGARIC operational</em></div></div>
+<div class="panel table-panel"><div class="panel-head"><h3>User Management</h3><button class="primary" onclick="moduleNotice('New User')">+ New User</button></div><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Action</th></tr></thead><tbody><tr><td><strong>LEGARIC Administrator</strong></td><td>admin@legaric.local</td><td>Administrator</td><td><span class="status status-open">Active</span></td><td>Manage</td></tr><tr><td><strong>Risk Officer</strong></td><td>risk@legaric.local</td><td>Risk Officer</td><td><span class="status status-open">Active</span></td><td>Manage</td></tr></tbody></table></div></section>
+</main>
+</div>
+<div class="modal hidden" id="riskModal">
+<div class="modal-card"><button class="close" id="closeRisk">×</button><span class="eyebrow">RISK MANAGEMENT</span><h2>New Risk</h2>
+<form id="riskForm">
+<label>Risk Event</label><input name="title" placeholder="Contoh: Keterlambatan pembayaran vendor" required=""/>
+<label>Category</label><select name="category"><option>Operational</option><option>Legal</option><option>Compliance</option><option>Financial</option><option>Strategic</option></select>
+<label>Risk Owner</label><input name="owner" placeholder="Nama / Unit"/>
+<div class="form-grid"><div><label>Likelihood (1–5)</label><input max="5" min="1" name="likelihood" required="" type="number" value="3"/></div><div><label>Impact (1–5)</label><input max="5" min="1" name="impact" required="" type="number" value="3"/></div></div>
+<label>Treatment</label><textarea name="treatment" placeholder="Rencana mitigasi"></textarea>
+<button class="primary" type="submit">Save Risk</button>
+<div class="error" id="riskError"></div>
+</form>
+</div>
+</div>
+<script src="/app.js"></script>
+<script>
+function togglePassword(){
+  const input = document.getElementById('password');
+  const button = document.querySelector('.password-toggle');
+  if(!input || !button) return;
+  const isPassword = input.type === 'password';
+  input.type = isPassword ? 'text' : 'password';
+  button.textContent = isPassword ? 'Hide' : 'Show';
+}
+</script>
+<div aria-hidden="true" class="profile-modal" id="profileModal">
+<div class="profile-modal-backdrop" onclick="closeProfileModal()"></div>
+<div aria-labelledby="profileTitle" aria-modal="true" class="profile-modal-card" role="dialog">
+<button aria-label="Close" class="profile-close" onclick="closeProfileModal()" type="button">×</button>
+<div class="profile-hero">
+<div class="profile-avatar">L</div>
+<div>
+<div class="profile-eyebrow">ACCOUNT PROFILE</div>
+<h2 id="profileTitle">LEGARIC Administrator</h2>
+<span class="profile-role">Administrator</span>
+</div>
+</div>
+<div class="profile-grid">
+<div class="profile-field"><span>Full Name</span><strong>LEGARIC Administrator</strong></div>
+<div class="profile-field"><span>Role</span><strong>Administrator</strong></div>
+<div class="profile-field"><span>Email</span><strong>admin@legaric.local</strong></div>
+<div class="profile-field"><span>Account Status</span><strong class="status-active">● Active</strong></div>
+<div class="profile-field"><span>Access Level</span><strong>Full GRC Access</strong></div>
+<div class="profile-field"><span>Last Login</span><strong>Current Session</strong></div>
+</div>
+<div class="profile-actions">
+<button class="profile-secondary" onclick="moduleNotice('Change Password')" type="button">Change Password</button>
+<button class="profile-primary" onclick="closeProfileModal()" type="button">Done</button>
+</div>
+</div>
+</div>
+<script>
+function openProfileModal(){
+  const modal = document.getElementById('profileModal');
+  if(!modal) return;
+  modal.classList.add('show');
+  modal.setAttribute('aria-hidden','false');
+}
+function closeProfileModal(){
+  const modal = document.getElementById('profileModal');
+  if(!modal) return;
+  modal.classList.remove('show');
+  modal.setAttribute('aria-hidden','true');
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeProfileModal();
+});
+</script>
+</body>
+</html>
